@@ -159,9 +159,8 @@ def car_list_view(request: WSGIRequest) -> HttpResponse:
     cars_info = Car.objects.filter(car_q).aggregate(total=Count('id'))
 
     page = request.GET.get('page', 1)
-    print(request.GET)
 
-    paginator = Paginator(car_list, 4)
+    paginator = Paginator(car_list, 8)
     try:
         cars = paginator.page(page)
     except PageNotAnInteger:
