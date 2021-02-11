@@ -1,0 +1,51 @@
+{#                <form class="col s12" enctype="multipart/form-data">#}
+<form action="." class="col s12" method="post">
+    {% csrf_token %}
+    <div class="row">
+        <ul class="col s12 collapsible">
+            <li>
+                <div class="collapsible-header">
+                    <i class="material-icons">add</i>
+                    Add car
+                    <span class="badge"></span>
+                </div>
+                <div class="collapsible-body">
+                    <div class="row">
+                        <div class="input-field col s12">
+                            {{ car_form.car_type }}
+                            <label for="id_car_type">Choose a car type:</label>
+                            {% for error in car_form.errors.car_type %}
+                            <p class="error">{{ error }}</p>
+                            {% endfor %}
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <i class="material-icons prefix">mode_edit</i>
+                            {{ car_form.licence_plate }}
+                            <label for="id_licence_plate">License plate</label>
+                            {% for error in car_form.errors.licence_plate %}
+                            <p class="error">{{ error }}</p>
+                            {% endfor %}
+                        </div>
+                    </div>
+                    <div class="row"></div>
+                    <div class="row">
+                        <div class="col s12 center">
+                            <button class="btn waves-effect waves-light" type="submit" name="action">გაგზავნა
+                                <i class="material-icons right">send</i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+</form>
+
+<style>
+    .error{
+        color: red;
+    }
+</style>
