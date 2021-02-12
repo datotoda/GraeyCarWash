@@ -50,7 +50,7 @@ class ContactForm(forms.Form):
 
 class CarForm(forms.ModelForm):
     licence_plate = CharField(widget=Textarea(attrs={
-        'id': 'icon_prefix2',
+        'id': 'id_licence_plate',
         'class': 'materialize-textarea'
     }), validators=[MaxLengthValidator(100)])
     car_type = ModelChoiceField(queryset=CarType.objects.all(), empty_label='აირჩიე მანქანის ტიპი')
